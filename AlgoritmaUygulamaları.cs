@@ -18,7 +18,7 @@ namespace HOCA_UYGULAMALR
         static void Main(string[] args)
         {
 
-            /* Write a python program should ask a word and an index number then remove the character at the given index
+            /* Write program should ask a word and an index number then remove the character at the given index
              # Example "I Love Python" with the index value 2 should return "I ove Python"*/
 
 
@@ -34,35 +34,7 @@ namespace HOCA_UYGULAMALR
 
             Console.WriteLine("*********************");
 
-            /*string[] all_letters = new string[100];
-            int i = 51;
-            int k = 2;
-            string letter = null;
-            while (letter != "quit") 
-            {
-                Console.WriteLine();
-                Console.WriteLine("Enter the letter");
-                Console.WriteLine();
-                letter = Console.ReadLine();         
-                if (i%2 != 0) 
-                {
-                    all_letters[i] = letter;
-                }
-                else 
-                {
-                    all_letters[i-k] = letter;
-                }
-                for (int j = 0; j < i+1; j++)
-                {
-                    Console.Write(all_letters[j]);
-                }          
-               
-                i++;
-                k = k+2;
-            }*/
-
-            Console.WriteLine("*****************");
-
+           
             /* Exercise 3 - Letter Chain
             # Write a python program that takes letter from the user and add that letter to the string
             # New letter is added with its usage count to the string with the order right,left,right,left, ...
@@ -106,7 +78,10 @@ namespace HOCA_UYGULAMALR
 
 
 
-            //Quizde çıkan soru
+            //Quizde çıkan soru //Exercise 4
+            /*User enters the products he wants to bu with price
+            User enters the products he want to bu
+            Everytime user buy the ssame product, product price increases 5%*/
 
 
 
@@ -179,7 +154,7 @@ namespace HOCA_UYGULAMALR
             }*/
 
 
-            /* Exercise 4 - Eurovision Song Contest
+            /* Exercise 5 - Eurovision Song Contest
             # Write a python program which takes the country list as an argument and returns name of winner country.
             # Every country should give points to other countries between 1 and 12 randomly.
             # Print the points of all countries.*/
