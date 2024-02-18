@@ -37,15 +37,15 @@ namespace Vehicle_Project
 
 
             string choice = "";
+            string quit = "";
           
-            while (choice != "exit")
+            while (quit.ToLower() != "exit" )
             {
                 Random number = new Random();
                 int capacity = number.Next(50, 100);
                 int person_capacity = number.Next(2,10);
                 /*Person capacity represents the number of human that can be on board
                  except the humans that are coming with their vehicle */
-
                 ArrayList All_vehicles = new ArrayList();
                 ArrayList All_persons = new ArrayList();
 
@@ -59,13 +59,9 @@ namespace Vehicle_Project
                 while (i < capacity)
                 {
                     Vehicle vehicles = new Vehicle();
-                    Console.WriteLine("Add or exit");
+                    Console.WriteLine("Add for adding vehicle , quit for stop adding vehicle ,");
                     choice  = Console.ReadLine();
-                    if (choice.ToLower() == "exit")
-                    {
-                        break;
-                    }
-                    else
+                    if (choice.ToLower() != "quit")
                     {
                         Console.WriteLine("");
                         Console.WriteLine("What is the type of the vehicle");
@@ -80,39 +76,48 @@ namespace Vehicle_Project
                         {
                             i += 0;
                         }
-                        else 
-                        { 
+                        else
+                        {
                             i += vehicles.size;
                             vehicles.price = vehicles.Calculate_price(vehicles);
                             total += vehicles.Calculate_price(vehicles);
 
                             All_vehicles.Add(vehicles);
-                        }          
+                        }
                     }
+                    else { break; }       
                 }
                 while (j < person_capacity)
                 {
+                    Console.WriteLine("Add for adding person , quit for stop adding person ," +
+                    " exit for closing all the program ");
+                    quit = Console.ReadLine();
                     Person person = new Person();
                     Console.WriteLine("");
 
-                    Console.WriteLine("What is the full name of the " + index + ".person");
-                    person.name = Console.ReadLine();
-                    Console.WriteLine("Is this person an adult or child or baby");
-                    person.type = Console.ReadLine();
-                    index++;
+                    if (quit.ToLower() != "quit" && quit.ToLower() != "exit")
+                    {
+                        Console.WriteLine("What is the full name of the " + index + ".person");
+                        person.name = Console.ReadLine();
+                        Console.WriteLine("Is this person an adult or child or baby");
+                        person.type = Console.ReadLine();
+                      
 
-                    person.payment = person.Calculate(person);
-                    if (person.payment == 0)
-                    {
-                        j += 0;
+                        person.payment = person.Calculate(person);
+                        if (person.payment == 0)
+                        {
+                            j += 0;
+                        }
+                        else
+                        {
+                            person.CheckJ(j, person_capacity);
+                            person_total += person.payment;
+                            All_persons.Add(person);
+                            j++;
+                            index++;
+                        }
                     }
-                    else
-                    {
-                        person.CheckJ(j, person_capacity);
-                        person_total += person.payment;
-                        All_persons.Add(person);
-                        j++;
-                    } 
+                    else { break ; }
                 }
                 index = 1;
                 Console.WriteLine("Vehicles in that ferry are : ");
@@ -121,7 +126,7 @@ namespace Vehicle_Project
                 {
                     Console.WriteLine(index + ". vehicle's features are");
 
-                    Console.WriteLine("Vehicle type is : " + item.type);
+                    Console.WriteLine("Vehicle's type is : " + item.type);
                     Console.WriteLine("Vehicle's plate is : " + item.plate);                 
                     Console.WriteLine("Vehicle's size is : " + item.size);
                     Console.WriteLine("Vehicle's payment is : " + item.price);
